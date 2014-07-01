@@ -1,0 +1,36 @@
+.produsNou{
+
+
+}
+
+#adaugare{
+    position: absolute;
+    left: 40px;
+}
+
+#butonAdaugare{
+    position: absolute;
+    left: 30px;
+
+}
+
+#butonTerminare{
+    position: absolute;
+    top: 120px;
+    left: 260px;
+}
+
+#listaProduse{
+    position: absolute;
+    top: 250px;
+    left: 30px;
+
+}
+
+.strike{
+    text-decoration: line-through;
+}
+
+
+
+

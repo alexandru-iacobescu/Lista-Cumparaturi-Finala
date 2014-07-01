@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html  ng-app="Lista">
+
+
+
+<head>
+    <title>Lista cumparaturi</title>
+    <h1 align="center">Lista cumparaturi</h1>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="design.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+
+
+
+
+<body ng-controller="ListaController">
+
+    <div class="produsNou">
+
+        <br>
+        <br>
+        <div id="butonAdaugare"><button ng-click="show()" >Adaugare Produs</button></div>
+        <form >
+
+            <div id="adaugare" ng-show="showInputProduct" >
+                <br>
+                <br>
+                Denumire produs : <input type="text" ng-model="newProductName"/><br>
+                Detalii produs : <input type="text" ng-model="newProductDetails"/>
+
+                <div id="butonTerminare"> <button ng-click="addProduct()">Terminare</button> </div>
+            </div>
+
+            <div id="listaProduse">
+                <ul>
+                    <li ng-repeat="product in products | filter:query" >
+
+                        <input type="checkbox" ng-model="product.checked">
+
+                        <span ng-class="{strike: product.checked}"  >
+                            <span>{{product.name}}</span>
+                            <span>{{product.details}}</span>
+                            <span>{{product.check}}</span>
+                        </span>
+
+                        <button ng-click="showNew()">Edit</button>
+
+                        <div id="editare" ng-show="showInputsEditedProduct" >
+                            <br>
+                            <br>
+                            Denumire noua : <input type="text" ng-model="product.name"/><br>
+                            Detalii : <input type="text" ng-model="product.details"/>
+                            <button ng-click="showInputsEditedProduct = false">Terminare</button>
+
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <br>
+                <button type="submit" ng-show="showDeleteButton" ng-click="erase()">Sterge produse cumparate</button>
+                <br>
+                <br>
+                <br>
+                <input ng-show="productsInList" ng-model="query" placeholder="cautare dupa"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
